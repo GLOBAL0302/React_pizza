@@ -1,24 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const PizzaCard = ({title, price}) => {
+const PizzaCard = ({title, price, imageUrl, types, sizes}) => {
+    const [pizzaAmount, setPizzaAmount] = useState(0)
+    const [activeType, setActiveType] = React.useState();
+    const [activeSize, setActiveSize] = React.useState();
+    const typesNames = ["тонкое", "традиционное"]
+    console.log(sizes);
     return (
-        <div className="pizza_item" style={{width:"280px", height:"459px"}}>
-            <img src="/img/all_pizzas/pizza_1.svg" alt=""/>
+        <div className="pizza_item">
+            <img src= {imageUrl} alt="pizza"/>
             <h3 className='text-center'>{title}</h3>
             <div className="pizza_info mb-15">
                 <ul className='d-flex justify-around'>
-                    <li>тонкое</li>
-                    <li>традиционное</li>
+                    {types.map(typeInd=>(
+                        <li onClick={()=> setActiveType(typeInd)} className={activeType == typeInd?"active":""}>{typesNames[typeInd]}</li>
+                    ))}
                 </ul>
                 <ul className='d-flex justify-around'>
-                    <li>26 см.</li>
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    {sizes.map((size, index) =>(
+                        <li onClick={()=>{setActiveSize(index)}} className={activeSize ===index?"active":""}>{size} cm</li>
+                    ))}
                 </ul>
             </div>
             <div className="pizza_item_bottom d-flex justify-between align-center">
                 <p>from {price} AED</p>
-                <button>Add to cart <span>2</span></button>
+                <button>Add to cart<span>{pizzaAmount}</span></button>
             </div>
         </div>
     );

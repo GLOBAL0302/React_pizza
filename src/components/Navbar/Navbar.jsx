@@ -1,15 +1,18 @@
 import React from 'react';
 
 const Navbar = () => {
+    const [activeBar, setActiveBar] = React.useState(0)
+    const navList = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые", "Закрытые"]
+
+    const onClickBar= (index) =>{
+        setActiveBar(index)
+    }
     return(
-        <div className="select_section">
+        <div className="navbar">
         <ul className='d-flex'>
-            <li>Все</li>
-            <li>Мясные</li>
-            <li>Вегетарианская</li>
-            <li>Гриль</li>
-            <li>Острые</li>
-            <li>Закрытые</li>
+            {navList.map((item, index)=>(
+                <li onClick={()=> onClickBar(index)} className={activeBar === index? "active": ""}>{item}</li>
+            ))}
         </ul>
 
         <div className="select">

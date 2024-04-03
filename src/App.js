@@ -2,6 +2,7 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import PizzaCard from "./components/PizzaCard/PizzaCard";
+import pizzaJson from "./assets/pizzaJson.json"
 
 
 
@@ -15,8 +16,12 @@ function App() {
 
             <div className="content">
                 <h1>Все пиццы</h1>
-                <div className="pizza_items">
-                    <PizzaCard price={345} title={"Чизбургер-пицца"}/>
+                <div className="pizza_items d-flex flex-wrap">
+                    {pizzaJson.map((pizza) =>(
+                        <PizzaCard
+                            {...pizza}
+                            />
+                    ))}
                 </div>
             </div>
         </div>
