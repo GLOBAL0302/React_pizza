@@ -16,9 +16,10 @@ function App() {
 
             <div className="content">
                 <h1>Все пиццы</h1>
-                <div className="pizza_items d-flex flex-wrap">
+                <div className="pizza_items d-flex justify-around flex-wrap">
                     {pizzaJson.map((pizza) =>(
                         <PizzaCard
+                            key={pizza.id}
                             {...pizza}
                             />
                     ))}

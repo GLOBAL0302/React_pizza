@@ -61,7 +61,7 @@ h2, p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-      ul{
+    .navbar_left{
         padding: 0;
         .active{
           background: black;
@@ -79,12 +79,57 @@ h2, p {
           border-radius: 30px;
         }
       }
-    button{
-      background: none;
-      border: none;
-    }
-    select{
-      border: none  ;
+
+    .select_button{
+      position: relative;
+      img{
+        left: 1px;
+        top:1px;
+        transition: transform 0.5s ease-in-out;
+      }
+      .active_img{
+        transform: rotate(180deg);
+        transition: transform 0.5s ease-in-out;
+      }
+      button{
+        background: none;
+        border: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.015em;
+        color: #2C2C2C;
+        span{
+          letter-spacing: 0.015em;
+          color: #FE5F1E;
+          border-bottom: 1px dashed #FE5F1E;
+        }
+
+      }
+      ul{
+        box-sizing: border-box;
+        position: absolute;
+        width: 135px;
+        height: 136px;
+        text-align: right;
+        right: 1px;
+        top: 10px;
+        background: #FFFFFF;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        align-items: center;
+        li{
+          padding: 5px;
+          flex: 1;
+        }
+        .chosenSearch{
+          color: rgba(254, 95, 30, 1) ;
+        }
+
+      }
+
     }
   }
 
@@ -95,13 +140,15 @@ h2, p {
       color: #000000;
     }
     .pizza_items{
-      gap: 10px;
+
       .pizza_item{
         width: 280px;
         display: flex;
         flex-direction: column;
+        margin-bottom: 65px;
+
         img{
-          margin-bottom: 11px;
+          margin:0px auto 11px
         }
         h3{
           margin: 0;
@@ -121,6 +168,20 @@ h2, p {
 
           .active{
             background: white;
+            transition: background 0.5s ease-in-out;
+          }
+
+          ul{
+            display: flex;
+
+            cursor: pointer;
+            li{
+              text-align: center;
+              padding: 8px;
+              flex: 1;
+              border-radius: 30px;
+              transition: background 0.5s ease-in-out;
+            }
           }
         }
         .pizza_item_bottom{
