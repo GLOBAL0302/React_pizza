@@ -1,69 +1,128 @@
 .cartWrapper{
-  .cart_Block{
-    margin:94px 218px 113px 296px;
-    max-width: 821px;
+  padding-top: 60px;
+  .cart_section {
+    width: 821px;
     span{
       font-weight: 400;
-      letter-spacing: 0.01em;
-      color: #8D8D8D;
+      font-size: 16px;
+      color: #B6B6B6;
     }
-    button{
-      border: none;
-      background: none;
-    }
-    .cartHeader{
-      border-bottom: 2px solid rgba(244, 244, 244, 1);
-    }
-    table{
-      border-collapse: collapse;
-      tr td{
-        border-bottom: 2px solid rgba(244, 244, 244, 1);
-      }
-      width: 100%;
-      .cart_item_img{
-        img{
-          width: 80px;
-          margin-right: 15px;
-        }
-      }
-      .cart_item_description{
-        p{
-          width: 280px;
-          font-weight: 700;
-          letter-spacing: 0.01em;
-        };
-
-      }
-      .cart_item_quantity{
-        max-width: 102px;
+    .cart_header {;
+      align-items: center;
+      border-bottom:1px solid rgba(244, 244, 244, 1) ;
+      h4{
+        padding-left: 46px;
         position: relative;
-        span{
-          width: 32px;
-          height: 32px;
-        }
-
-        span:first-child{
-          background: url("../../../public/img/cartBlock_decrease.svg");
-        }
-        p{margin: 0 4px}
-        span:last-child{
-          background: url("../../../public/img/cartBlock_increase1.svg")
-        }
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: 0.01em;
       }
-      .cart_item_price{
-        p{
-          margin-left: 93px;
-          width: 58px;
-        }
+      h4::before{
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: url("../../../public/img/cartBlock_Cart.svg");
+        left: 1px;
       }
-      .cart_item_deleteBtn{
-        button{
-          width: 32px;
-          margin-left: 93px;
-        }
+      span{
+        margin-left: auto;
+        position: relative;
+      }
+      span::before{
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: url("../../../public/img/cartBlock_Trash.svg");
+        left: -23px;
       }
     }
+    .cart_content{
+      button{
+        border: none;
+        background: none;
+        content: "";
+        width: 32px;
+        height: 32px;
+      }
+      .cart_item{
+        img{
+          margin-right: 20px;
+        }
+        p{
+          font-weight: 700;
+          font-size: 22px;
+          letter-spacing: 0.01em;
+        }
+        .cart_quantity{
+          flex-basis: 102px;
+          position: relative;
+          .cart_decreseBtn{
+            background: url("../../../public/img/cartBlock_decrease.svg");
+            margin-right: 5px;
+          }
+          .cart_increaseBtn{
+            background: url("../../../public/img/cartBlock_increase1.svg");
+            margin-left: 5px;
+          }
+        }
+        .cart_item_delete{
+          background: url("../../../public/img/Cart_Block_removeBtn.png");
+        }
+        border-bottom:1px solid rgba(244, 244, 244, 1) ;
+        padding-bottom: 30px;
+        margin-top: 30px;
+      }
+    }
+  }
+  .cart_item_total{
+    margin-top: 40px;
+    button{
+      position: relative;
+      border: 1px solid black;
+      width: 211px;
+      padding: 17px 6px;
+      background: none;
+      border: 1px solid rgba(211, 211, 211, 1);
+      border-radius: 30px;
+      margin-top: 40px;
 
+      font-weight: 700;
+      font-size: 16px;
+    }
+    p{
+      font-weight: 400;
+      font-size: 22px;
+      span{
+        font-weight: 700;
+        font-size: 22px;
+      }
+    }
+    .cart_total_left{
+        span{
+          color: black;
+      };
+      button::after{
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 12px;
+        background: url("../../../public/img/cart_button_back.svg");
+        left: 23px;
+        top: 18px;
+      }
 
+    }
+    .cart_total_right{
+      span{
+      color: rgba(254, 95, 30, 1);
+      }
+      button{
+        background: rgba(254, 95, 30, 1);
+        color: white;
+      }
+    }
   }
 }
+

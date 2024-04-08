@@ -3,37 +3,39 @@ import style from "./Cart.scss"
 
 const Cart = () => {
     return (
-        <div className="cartWrapper">
-            <div className="cart_Block">
-                <div className="cartHeader d-flex justify-between mb-25">
-                    <div className="d-flex">
-                        <img src="/img/cartBlock_Cart.svg" alt="cart"/>
-                        <h3>Cart</h3>
-                    </div>
-                    <div className="d-flex align-center">
-                        <img src="/img/cartBlock_Trash.svg" alt="trash_icon"/>
-                        <span>Clear the cart</span>
-                    </div>
+        <div className="cartWrapper d-flex justify-center align-center">
+            <div className="cart_section">
+                <div className="cart_header d-flex">
+                    <h4>Cart</h4>
+                    <span>Очистить корзину</span>
                 </div>
                 <div className="cart_content">
-                    <table>
-                        <tr>
-                            <td className="cart_item_img"><img src="/img/all_pizzas/pizza_1.svg" alt="1"/></td>
-                            <td className="cart_item_description">
-                                <p>Сырный цыпленок</p>
-                                <span>тонкое тесто, 26 см.</span>
-                            </td>
-                            <td className="cart_item_quantity"><div className="d-flex align-center">
-                                <span></span>
-                                <p>2</p>
-                                <span></span></div></td>
-                            <td className="cart_item_price"><p>770 AED</p></td>
-                            <td className="cart_item_deleteBtn"><button><img src="/img/Cart_Block_removeBtn.png" alt=""/></button></td>
-                        </tr>
+                    <div className="cart_item d-flex align-center justify-between">
+                        <img src="/img/all_pizzas/pizza_1.svg" alt="" style={{width:"80px", height:"80px"}}/>
+                        <p>Сырный цыпленок <br/><span>тонкое тесто, 26 см.</span></p>
+                        <div className="cart_quantity d-flex align-center">
+                            <button className="cart_decreseBtn"></button>
+                            <p>2</p>
+                            <button className="cart_increaseBtn"></button>
+                        </div>
+                        <p>770 AED</p>
+                        <button className="cart_item_delete"></button>
+                    </div>
 
-                    </table>
                 </div>
+                <div className="cart_item_total d-flex">
+                    <div className="cart_total_left">
+                        <p>Всего пицц:  &nbsp; <span>3 шт.</span></p>
+                        <button>Вернуться назад</button>
+                    </div>
+                    <div className="cart_total_right ml-auto">
+                        <p>Сумма заказа:<span> 900 ₽</span></p>
+                        <button>Оплатить сейчас</button>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     );
 };
