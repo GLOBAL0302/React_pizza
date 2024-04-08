@@ -9,8 +9,8 @@ const Navbar = () => {
         setActiveBar(index)
     }
     return(
-        <div className="navbar">
-        <ul className='d-flex navbar_left'>
+        <div className="navbar flex-wrap">
+        <ul className='d-flex navbar_left '>
             {navList.map((item, index)=>(
                 <li key={index} onClick={()=> onClickBar(index)} className={activeBar === index? "active": ""}>{item}</li>
             ))}

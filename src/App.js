@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Home from "./Pages/Home";
 import {Routes, Route} from "react-router-dom";
 import NotFound from "./Pages/NotFound";
-import Cart from "./Pages/Cart";
+import Cart from "./Pages/Cart/Cart";
 
 
 function App() {

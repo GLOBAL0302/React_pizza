@@ -26,6 +26,11 @@ h2, p {
 
   header {
     margin-bottom: 40px;
+    @media (max-width: 550px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .header_right {
       box-sizing: border-box;
       width: 150px;
@@ -66,8 +71,16 @@ h2, p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+    @media (max-width:993px ) {
+      flex-direction: column-reverse;
+    }
     .navbar_left{
         padding: 0;
+        @media (max-width:950px ) {
+          max-width: 445px;
+          overflow: scroll;
+      }
         .active{
           background: black;
           color: white;
@@ -145,9 +158,24 @@ h2, p {
       color: #000000;
     }
     .pizza_items{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 0;
+
+      @media (max-width: 1250px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 990px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 665px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
 
       .pizza_item{
-        width: 280px;
+        min-width: 280px;
         display: flex;
         flex-direction: column;
         margin-bottom: 65px;
@@ -241,3 +269,5 @@ h2, p {
   }
 
 }
+
+

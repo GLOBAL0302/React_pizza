@@ -21,6 +21,8 @@ const Home = () => {
 
                 }, 2000)
             })
+
+        window.scrollTo(0,0)
     }, [])
 
     return (
@@ -29,7 +31,7 @@ const Home = () => {
             <Navbar/>
             <div className="content">
                 <h1>Все пиццы</h1>
-                <div className="pizza_items d-flex justify-around flex-wrap">
+                <div className="pizza_items">
                     {
                         isLoading ?
                             [...new Array(6)].map((_, index) => <SkeletonPizza key={index}/>)
