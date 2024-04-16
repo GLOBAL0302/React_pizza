@@ -24,7 +24,7 @@ const PizzaCard = ({title, price, imageUrl, types, sizes}) => {
                     </ul>
                 </div>
                 <div className="pizza_item_bottom d-flex justify-between align-center">
-                    <p>from {price} AED</p>
+                    <p>from {price}AED</p>
                     <button>Add to cart<span>{pizzaAmount}</span></button>
                 </div>
             </div>

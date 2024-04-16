@@ -80,7 +80,6 @@
     margin-top: 40px;
     button{
       position: relative;
-      border: 1px solid black;
       width: 211px;
       padding: 17px 6px;
       background: none;
@@ -116,7 +115,7 @@
     }
     .cart_total_right{
       span{
-      color: rgba(254, 95, 30, 1);
+      color: (254, 95, 30, 1)
       }
       button{
         background: rgba(254, 95, 30, 1);
