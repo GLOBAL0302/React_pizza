@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import SearchBtn from "../Search/SearchBtn";
 
-const Header = () => {
+
+const Header = ({searchValue, setSearchValue}) => {
     return(
         <header className='d-flex justify-between'>
             <Link to="/">
@@ -13,6 +15,7 @@ const Header = () => {
                     </div>
                 </div>
             </Link>
+            <SearchBtn searchValue={searchValue} setSearchValue={setSearchValue}/>
             <Link to="cart">
                 <div className="header_right d-flex align-center">
                     <p className="total_price">520 AED</p>

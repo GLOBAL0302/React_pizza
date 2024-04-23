@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBtn = ({navSort, onclickNavSort}) => {
+const SortBtn = ({navSort, onclickNavSort}) => {
     const searchNames = [
         {name:"по пулярности", sortProperty:"rating"},
         {name:"по цене", sortProperty: "price"},
@@ -31,4 +31,4 @@ const SearchBtn = ({navSort, onclickNavSort}) => {
     );
 };
 
-export default SearchBtn;
+export default SortBtn;
