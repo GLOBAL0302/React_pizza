@@ -1,7 +1,9 @@
 import React from 'react';
 import style from "./SearchBtn.module.scss"
+import {SearchContext} from "../../App";
 
-const SearchBtn = ({searchValue, setSearchValue}) => {
+const SearchBtn = () => {
+    const {searchValue, setSearchValue} = React.useContext(SearchContext)
     return (
         <div className={style.searchSection}>
             <img src="/img/searchIcon.png" alt="alt" style={{width:"25px"}}/>

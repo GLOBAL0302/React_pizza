@@ -5,9 +5,11 @@ import Navbar from "../components/Navbar/Navbar";
 import SortBtn from "../components/Navbar/SortBtn";
 
 import PaginationBtn from "../components/Pagination/PaginationBtn";
+import {SearchContext} from "../App";
 
 
-const Home = ({searchValue, setSearchValue}) => {
+const Home = () => {
+    const {searchValue, setSearchValue} = React.useContext(SearchContext)
     const [pizzaItems, setPizzaItems] = React.useState([])
     const [isLoading, setIsloading] = React.useState(true)
     const [navCategory, setNavCategory] = React.useState(0)
