@@ -8,22 +8,30 @@ import PaginationBtn from "../components/Pagination/PaginationBtn";
 import {SearchContext} from "../App";
 
 
+import {useSelector, useDispatch} from  "react-redux";
+import {setCategoryId} from "../redux/slices/filterSlice";
+
+
 const Home = () => {
+    const dispatch = useDispatch()
+    const {categoryId, sort}= useSelector(state => state.filters);
+    const onChangeCategory = (id)=>{
+        dispatch(setCategoryId(id))
+    }
+
+
+
+
     const {searchValue, setSearchValue} = React.useContext(SearchContext)
     const [pizzaItems, setPizzaItems] = React.useState([])
     const [isLoading, setIsloading] = React.useState(true)
-    const [navCategory, setNavCategory] = React.useState(0)
-    const [navSort, setNavSort] = React.useState(
-        {
-            name:"по пулярности",
-            sortProperty:"rating"
-        }
-    )
+
+
     const [currentPage, setCurrentPage] = React.useState(1)
     let url = new URL(`https://660f2136356b87a55c50ddb1.mockapi.io/PizzaItems?page=${currentPage}&limit=4`)
-    url.searchParams.append("sortBy", navSort.sortProperty)
-    if (navCategory){
-        url.searchParams.append("category", navCategory)
+    url.searchParams.append("sortBy", sort.sortProperty)
+    if (categoryId){
+        url.searchParams.append("category", categoryId)
     }
     //do ascending and decending BTN for the request
     useEffect(() => {
@@ -40,13 +48,13 @@ const Home = () => {
             })
 
         window.scrollTo(0, 0)
-    }, [navCategory, navSort, searchValue, currentPage])
+    }, [categoryId, sort, searchValue, currentPage])
 
     return (
         <>
             <div className="navbar">
-                <Navbar navCategory={navCategory} onClickNavCategory={(categoryId)=>{setNavCategory(categoryId)}}/>
-                <SortBtn navSort={navSort} onclickNavSort={(sortId)=>setNavSort(sortId)}/>
+                <Navbar navCategory={categoryId} onClickNavCategory={onChangeCategory}/>
+                <SortBtn/>
             </div>
             <div className="content">
                 <h1>Все пиццы</h1>

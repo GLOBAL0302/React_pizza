@@ -9,10 +9,13 @@ import React from "react";
 export const SearchContext = React.createContext("")
 
 function App() {
-
     const [searchValue, setSearchValue] = React.useState('')
+
+
+
     return (
         <div className="wrapper">
+
             <SearchContext.Provider value={{searchValue, setSearchValue}}>
             <Header/>
             <Routes>
@@ -21,7 +24,6 @@ function App() {
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
             </SearchContext.Provider>
-
         </div>
     );
 }

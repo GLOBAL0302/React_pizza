@@ -1,6 +1,13 @@
 import React from 'react';
+import {useSelector, useDispatch} from "react-redux";
+import {setSort} from "../../redux/slices/filterSlice";
 
-const SortBtn = ({navSort, onclickNavSort}) => {
+const SortBtn = () => {
+    const dispatch = useDispatch()
+    const sort = useSelector((state)=> state.filters.sort)
+
+
+
     const searchNames = [
         {name:"по пулярности", sortProperty:"rating"},
         {name:"по цене", sortProperty: "price"},
@@ -14,16 +21,16 @@ const SortBtn = ({navSort, onclickNavSort}) => {
         setOpenSearch(prevState => !prevState)
     }
 
-    const onClickChosen = (obj) =>{
-        onclickNavSort(obj)
+    const onClickChosen = (item) =>{
+        dispatch(setSort(item))
     }
     return (
         <div className="select_button" onClick={onClickSelect} >
             <img src="/img/search_icon.svg" className={openSearch ? "active_img" : ""} alt="pic"/>
-            <button>Сортировка по: <span>{navSort.name}</span></button>
+            <button>Сортировка по: <span>{sort.name}</span></button>
             <ul style={{display: openSearch? "flex": "none"}}>
                 {searchNames.map((obj, index)=>(
-                    <li key={index} onClick={()=>{onClickChosen(obj)}} className= {navSort.sortProperty === obj.sortProperty ? "chosenSearch" :""}>{obj.name}</li>
+                    <li key={index} onClick={()=> onClickChosen(obj)} className= {sort.sortProperty === obj.sortProperty ? "chosenSearch" :""}>{obj.name}</li>
                 ))}
             </ul>
         </div>
