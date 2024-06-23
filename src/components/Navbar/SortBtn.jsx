@@ -2,17 +2,18 @@ import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {setSort} from "../../redux/slices/filterSlice";
 
+export const searchNames = [
+    {name:"по пулярности", sortProperty:"rating"},
+    {name:"по цене", sortProperty: "price"},
+    {name:"по алфавиту", sortProperty: "title"}
+]
 const SortBtn = () => {
     const dispatch = useDispatch()
     const sort = useSelector((state)=> state.filters.sort)
 
 
 
-    const searchNames = [
-        {name:"по пулярности", sortProperty:"rating"},
-        {name:"по цене", sortProperty: "price"},
-        {name:"по алфавиту", sortProperty: "title"}
-    ]
+
     const [openSearch, setOpenSearch] = React.useState(false)
 
 

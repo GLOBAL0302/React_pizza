@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import style from "./SearchBtn.module.scss"
 import {SearchContext} from "../../App";
 import debounce from  "lodash.debounce"
@@ -12,7 +12,8 @@ const SearchBtn = () => {
 
     const onClickClear = ()=>{
         inputRef.current.focus()
-        setSearchValue("");
+        console.log("hi")
+        setValue("");
     }
 
     const testDebounce = useCallback(
@@ -32,6 +33,10 @@ const SearchBtn = () => {
         setValue(event.target.value)
         updateSearchValue(event.target.value)
     }
+
+    useEffect(()=>{
+
+    })
 
     return (
         <div className={style.searchSection}>
